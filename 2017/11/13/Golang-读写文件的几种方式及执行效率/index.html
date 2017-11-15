@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Nodejs,Nodejs模块,log," />
+  <meta name="keywords" content="Golang,性能," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="坚持是一种品格">
-<meta name="keywords" content="Nodejs,Nodejs模块,log">
+<meta name="description" content="写123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384package mainimport (	&quot;bufio&quot; //缓存IO	&quot;fmt">
+<meta name="keywords" content="Golang,性能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node.js:log4js日志模块使用指南">
-<meta property="og:url" content="http://liwux.com/2017/10/17/Node-js-log4js日志模块使用指南/index.html">
+<meta property="og:title" content="Golang-读写文件的几种方式及执行效率">
+<meta property="og:url" content="http://liwux.com/2017/11/13/Golang-读写文件的几种方式及执行效率/index.html">
 <meta property="og:site_name" content="Liwux&#39;s Blog">
-<meta property="og:description" content="坚持是一种品格">
+<meta property="og:description" content="写123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384package mainimport (	&quot;bufio&quot; //缓存IO	&quot;fmt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-23T03:15:26.442Z">
+<meta property="og:updated_time" content="2017-11-13T10:42:20.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Node.js:log4js日志模块使用指南">
-<meta name="twitter:description" content="坚持是一种品格">
+<meta name="twitter:title" content="Golang-读写文件的几种方式及执行效率">
+<meta name="twitter:description" content="写123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384package mainimport (	&quot;bufio&quot; //缓存IO	&quot;fmt">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://liwux.com/2017/10/17/Node-js-log4js日志模块使用指南/"/>
+  <link rel="canonical" href="http://liwux.com/2017/11/13/Golang-读写文件的几种方式及执行效率/"/>
 
 
 
 
 
-  <title>Node.js:log4js日志模块使用指南 | Liwux's Blog</title>
+  <title>Golang-读写文件的几种方式及执行效率 | Liwux's Blog</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liwux.com/2017/10/17/Node-js-log4js日志模块使用指南/">
+    <link itemprop="mainEntityOfPage" href="http://liwux.com/2017/11/13/Golang-读写文件的几种方式及执行效率/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Liwux">
@@ -310,7 +310,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Node.js:log4js日志模块使用指南</h2>
+          <h2 class="post-title" itemprop="name headline">Golang-读写文件的几种方式及执行效率</h2>
         
 
         <div class="post-meta">
@@ -322,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-17T18:40:35+08:00">
-                2017-10-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T18:36:22+08:00">
+                2017-11-13
               </time>
             
 
@@ -345,8 +345,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Nodejs/" itemprop="url" rel="index">
-                    <span itemprop="name">Nodejs</span>
+                  <a href="/categories/Golang/" itemprop="url" rel="index">
+                    <span itemprop="name">Golang</span>
                   </a>
                 </span>
 
@@ -418,7 +418,10 @@
       
 
       
-        
+        <h2 id="写"><a href="#写" class="headerlink" title="写"></a>写</h2><figure class="highlight golang"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> main</div><div class="line"></div><div class="line"><span class="keyword">import</span> (</div><div class="line">	<span class="string">"bufio"</span> <span class="comment">//缓存IO</span></div><div class="line">	<span class="string">"fmt"</span></div><div class="line">	<span class="string">"io/ioutil"</span> <span class="comment">//io 工具包</span></div><div class="line">	<span class="string">"io"</span></div><div class="line">	<span class="string">"os"</span></div><div class="line">	<span class="string">"time"</span></div><div class="line">)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">check</span><span class="params">(e error)</span></span> &#123;</div><div class="line">	<span class="keyword">if</span> e != <span class="literal">nil</span> &#123;</div><div class="line">		<span class="built_in">panic</span>(e)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">* 判断文件是否存在 存在返回 true 不存在返回false</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">checkFileIsExist</span><span class="params">(filename <span class="keyword">string</span>)</span> <span class="params">(<span class="keyword">bool</span>)</span></span> &#123;</div><div class="line">	<span class="keyword">var</span> exist = <span class="literal">true</span></div><div class="line">	<span class="keyword">if</span> _, err := os.Stat(filename); os.IsNotExist(err) &#123;</div><div class="line">		exist = <span class="literal">false</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> exist</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">*/</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</div><div class="line">	<span class="keyword">var</span> wireteString = <span class="string">"测试\n"</span></div><div class="line">	<span class="keyword">var</span> filename = <span class="string">"./output1.txt"</span></div><div class="line">	<span class="keyword">var</span> f *os.File</div><div class="line">	<span class="keyword">var</span> err1 error</div><div class="line">	start := time.Now()</div><div class="line">	<span class="comment">/******************* 第一种方式: 使用 io.WriteString 写入文件 *************************************/</span></div><div class="line">	<span class="keyword">if</span> checkFileIsExist(filename) &#123; <span class="comment">//如果文件存在</span></div><div class="line">		f, err1 = os.OpenFile(filename, os.O_APPEND, <span class="number">0666</span>) <span class="comment">//打开文件</span></div><div class="line">		fmt.Println(<span class="string">"文件存在"</span>)</div><div class="line">	&#125;<span class="keyword">else</span> &#123;</div><div class="line">		f, err1 = os.Create(filename) <span class="comment">//创建文件</span></div><div class="line">		fmt.Println(<span class="string">"文件不存在"</span>)</div><div class="line">	&#125;</div><div class="line">	check(err1)</div><div class="line">	n, err1 := io.WriteString(f, wireteString) <span class="comment">//写入文件(字符串)</span></div><div class="line">	check(err1)</div><div class="line">	t0 := time.Now()</div><div class="line">	fmt.Printf(<span class="string">"写入 %d 个字节\n"</span>, n)</div><div class="line">	fmt.Printf(<span class="string">"Cost time %v\n"</span>, t0.Sub(start))</div><div class="line"></div><div class="line">	t1 := time.Now()</div><div class="line">	<span class="comment">/******************* 第二种方式: 使用 ioutil.WriteFile 写入文件 *************************************/</span></div><div class="line">	<span class="keyword">var</span> d1 = []<span class="keyword">byte</span>(wireteString)</div><div class="line">	err2 := ioutil.WriteFile(<span class="string">"./output2.txt"</span>, d1, <span class="number">0666</span>) <span class="comment">//写入文件(字节数组)</span></div><div class="line">	check(err2)</div><div class="line">	fmt.Printf(<span class="string">"写入 %d 个字节\n"</span>, n)</div><div class="line">	fmt.Printf(<span class="string">"Cost time %v\n"</span>, t1.Sub(t0))</div><div class="line">	<span class="comment">/******************* 第三种方式: 使用 File(Write,WriteString) 写入文件 *************************************/</span></div><div class="line">	t2 := time.Now()</div><div class="line">	f, err3 := os.Create(<span class="string">"./output3.txt"</span>) <span class="comment">//创建文件</span></div><div class="line">	check(err3)</div><div class="line">	<span class="keyword">defer</span> f.Close()</div><div class="line">	n2, err3 := f.Write(d1) <span class="comment">//写入文件(字节数组)</span></div><div class="line">	check(err3)</div><div class="line">	fmt.Printf(<span class="string">"写入 %d 个字节\n"</span>, n2)</div><div class="line">	fmt.Printf(<span class="string">"Cost time %v\n"</span>, t2.Sub(t1))</div><div class="line"></div><div class="line">	t3 := time.Now()</div><div class="line">	n3, err3 := f.WriteString(<span class="string">"writesn"</span>) <span class="comment">//写入文件(字节数组)</span></div><div class="line">	fmt.Printf(<span class="string">"写入 %d 个字节\n"</span>, n3)</div><div class="line">	f.Sync()</div><div class="line">	fmt.Printf(<span class="string">"Cost time %v\n"</span>, t3.Sub(t2))</div><div class="line">	t4 := time.Now()</div><div class="line">	<span class="comment">/******************* 第四种方式: 使用 bufio.NewWriter 写入文件 *************************************/</span></div><div class="line">	w := bufio.NewWriter(f) <span class="comment">//创建新的 Writer 对象</span></div><div class="line">	n4, err3 := w.WriteString(<span class="string">"buffered\n"</span>)</div><div class="line">	fmt.Printf(<span class="string">"写入 %d 个字节\n"</span>, n4)</div><div class="line">	fmt.Printf(<span class="string">"Cost time %v\n"</span>, t4.Sub(t3))</div><div class="line">	w.Flush()</div><div class="line">	f.Close()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：<br>文件存在<br>写入 7 个字节<br>Cost time 2.0058ms<br>写入 7 个字节<br>Cost time 1.0027ms<br>写入 7 个字节<br>Cost time 4.011ms<br>写入 7 个字节<br>Cost time 3.0072ms<br>写入 9 个字节<br>Cost time 3.0084ms<br>执行效率：第二种方式: 使用 ioutil.WriteFile 写入文件</p>
+<h3 id="读"><a href="#读" class="headerlink" title="读"></a>读</h3><a href="http://blog.csdn.net/wangshubo1989/article/details/74777112" title="[external] [ Go实战--golang中读写文件的几种方式]" target="_blank" rel="external">text</a>
+
       
     </div>
     
@@ -435,11 +438,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Nodejs/" rel="tag"># Nodejs</a>
+            <a href="/tags/Golang/" rel="tag"># Golang</a>
           
-            <a href="/tags/Nodejs模块/" rel="tag"># Nodejs模块</a>
-          
-            <a href="/tags/log/" rel="tag"># log</a>
+            <a href="/tags/性能/" rel="tag"># 性能</a>
           
         </div>
       
@@ -452,8 +453,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/17/Node-js-编程集锦/" rel="next" title="Node.js:编程集锦">
-                <i class="fa fa-chevron-left"></i> Node.js:编程集锦
+              <a href="/2017/10/27/Angular-数据绑定/" rel="next" title="Angular:数据绑定">
+                <i class="fa fa-chevron-left"></i> Angular:数据绑定
               </a>
             
           </div>
@@ -461,10 +462,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/23/VPN-site-to-site-路由详解/" rel="prev" title="VPN:site to site 路由详解">
-                VPN:site to site 路由详解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -542,8 +539,17 @@ var jiathis_config={
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -605,6 +611,22 @@ var jiathis_config={
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写"><span class="nav-number">1.</span> <span class="nav-text">写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#读"><span class="nav-number">1.1.</span> <span class="nav-text">读</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
